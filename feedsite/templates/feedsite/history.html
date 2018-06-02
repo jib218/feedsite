@@ -1,0 +1,44 @@
+{% extends "feedsite/base.html" %}
+{% load tz %}
+{% block content %}
+{% for item in object_list %}
+<article class="read">
+        <header>
+            <h2>
+                <a class="mark-unread-title" rel="noreferrer" target="_blank" href="{{ item.link }}">
+                    {{ item.title }}
+                </a>
+            </h2>
+        </header>
+        {% if item.description is not None %}
+        <p class="description" >
+            {{item.description|safe}}
+        </p>
+        {% endif %}
+        <aside>
+            <div class="information">
+                <small>
+                    {% timezone item.feed.user.settings.timezone %}
+                    {{ item.feed.title }} | {{ item.published|date:'Y-m-d H:i' }}
+                    {% endtimezone %}
+                </small>
+            </div>    
+            <a class="mark-unread" href="{% url 'feedsite:markunread' item.id %}">Mark as unread</a>
+        </aside>
+</article>
+{% endfor %}
+<br>
+{% if is_paginated %}
+    {% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}" id="previous" >&laquo;Previous</a>
+<br>
+    {% endif %}
+              
+    {% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}" id="next" >Next&raquo;</a>
+<br>
+    {% endif %}
+{% endif %}
+
+{% endblock %}
+

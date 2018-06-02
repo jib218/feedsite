@@ -1,0 +1,10 @@
+{% extends "feedsite/base.html" %} 
+
+{% block content %}
+
+<form method="post" class="form-feed">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Confirm" id="submit"/>
+</form>
+
+{% endblock %}

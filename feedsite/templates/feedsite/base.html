@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="referrer" content="no-referrer">
+    <title>{% block title %} Feedsite {% endblock %}</title>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static 'feedsite/solarized-dark.css' %}" />
+    {% block header %}{% endblock %}
+</head>
+<body>
+    <header>
+        <nav class="head-nav-bar">
+            {% with request.resolver_match.url_name as url_name %}
+            <ul>
+                <li class="{% if url_name == 'unread' %}active{% endif %}">
+                    <a href="{% url 'feedsite:unread' %}">Unread</a>
+                </li>
+                <li class="{% if url_name == 'history' %}active{% endif %}">
+                    <a href="{% url 'feedsite:history' %}">History</a>
+                </li>
+                <li class="{% if url_name == 'feeds' %}active{% endif %}">
+                    <a href="{% url 'feedsite:feeds' %}">Feeds</a>
+                </li>
+                <li class="{% if url_name == 'settings' %}active{% endif %}">
+                    <a href="{% url 'feedsite:settings' %}">Settings</a>
+                </li>
+                <li id="logout" >
+                    <a href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+            {% endwith %} 
+        </nav>
+    </header>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

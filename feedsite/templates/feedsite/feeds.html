@@ -1,0 +1,16 @@
+{% extends "feedsite/base.html" %}
+
+{% block content %}
+<br>
+<a href="{% url 'feedsite:feed-create' %}" id="feeds-create" >Create new feed</a>
+<!-- <h1>Feeds</h1> -->
+<ul id="feeds-list">
+    {% for feed in object_list %}
+    <li>
+        <a href="{% url 'feedsite:feed-update' feed.id %}" id="feed-title" >{{ feed.title }}</a>
+        <a href="{% url 'feedsite:feed-delete' feed.id %}" id="feed-delete" >Delete Feed</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+

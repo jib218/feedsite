@@ -1,0 +1,17 @@
+{% extends "feedsite/base.html" %} 
+
+{% block content %}
+
+<h1>{{ feed.title }}</h1>
+
+<div class="text">
+Bozo: {{feed.bozo}} <br/>
+Last checked: {{feed.lastchecked}}
+</div>
+
+<form method="post" class="form-feed">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update" id="submit" />
+</form>
+
+{% endblock %}

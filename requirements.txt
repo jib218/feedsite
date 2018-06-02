@@ -1,0 +1,6 @@
+Django>=2.0.4
+django-annoying>=0.10.4
+beautifulsoup4>=4.6.0
+feedparser>=5.2.1
+python-dateutil>=2.7.3
+pytz>=2018.3

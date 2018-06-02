@@ -1,0 +1,96 @@
+{% extends "feedsite/base.html" %}
+{% load tz %}
+
+{% block header %}
+<script>
+// Wait for the page to load first
+window.onload = function() {
+
+var markReads = document.getElementsByClassName("mark-read");
+
+for (mr of markReads) {
+    mr.onclick = function() {
+        fetch(this.href, {
+            credentials: 'same-origin'  
+        });
+       
+        articles = document.getElementsByClassName("unread")
+        var article = this.parentNode.parentNode
+        
+        if (articles.length == 1) {
+            let markList = document.getElementById("markreadlist")
+            if (markList !== null)
+                markList.remove()
+            let markRest = document.getElementById("markreadrest")
+            if (markRest !== null)
+                markRest.remove()
+        } else if (articles.length > 1 && articles[0] == article) {
+            let markList = document.getElementById("markreadlist")
+            if (markList !== null) {
+                    u = markList.href.split("/")
+                    u[u.length - 3] = articles[1].id
+                    markList.href = u.join("/")
+            }
+            let markRest = document.getElementById("markreadrest")
+            if (markRest !== null) {
+                u = markRest.href.split("/")
+                u[u.length - 2] = articles[1].id
+                markRest.href = u.join("/")
+            }
+        }
+
+        article.parentNode.removeChild(article);
+        
+        return false;
+    }
+}
+
+var markReadTitles = document.getElementsByClassName("mark-read-title")
+
+}
+</script>
+{% endblock %}
+
+{% block content %} 
+{% for item in object_list %}
+{% if forloop.last and object_list|length_is:max_items %}
+<br>
+<a href="?first={{ item.pk }}" id="next" >Next&raquo;</a>
+<br>
+<a id="markreadlist" href="{% url 'feedsite:markreadlist' object_list.0.id item.id %}">Mark as read & Next&raquo;</a>
+<br>
+{% else %}
+<article class="unread" id="{{ item.pk }}" >
+    <header>
+        <h2>
+            <a class="mark-read-title" rel="noreferrer" target="_blank" href="{{ item.link }}">
+                {{ item.title }}
+            </a>
+        </h2>
+    </header>
+    {% if item.description is not None %}
+    <p class="description" >
+        {{item.description|safe}}
+    </p>
+    {% endif %}
+    <aside>
+        <div class="information">
+            <small>
+                {% timezone item.feed.user.settings.timezone %}
+                {{ item.feed.title }} | {{ item.published|date:'Y-m-d H:i' }}
+                {% endtimezone %}
+            </small>
+        </div>
+        <a class="mark-read" href="{% url 'feedsite:markread' item.id %}">Mark as read</a>
+    </aside>
+</article>
+
+    {% if forloop.last %}
+<br>
+<a id="markreadrest" href="{% url 'feedsite:markreadrest' object_list.0.id %}">Mark as read</a>
+<br>
+    {% endif %}
+{% endif %}
+{% endfor %}
+{% endblock %}
+

@@ -1,0 +1,13 @@
+{% extends "feedsite/base.html" %}
+
+{% block content %}
+
+<h1>{{ settings.user.get_username }}</h1>
+
+<form method="post" class="form-settings">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update" id="submit" />
+</form>
+
+{% endblock %}

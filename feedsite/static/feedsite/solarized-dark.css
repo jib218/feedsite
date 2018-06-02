@@ -1,0 +1,190 @@
+/* 
+General
+*/
+
+html, body {
+    background-color: #002b36 !important;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin:0; 
+    padding:0;
+    color: #839496;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    border-color: #094352 !important;
+    color: #b58900;
+}
+
+a {
+    color: #839496;
+}
+
+#content {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+@media only screen and (min-width: 900px) { 
+    #content {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+
+/* 
+Head Navigation Bar
+*/
+
+.head-nav-bar ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #073642 !important;
+}
+
+.head-nav-bar li {
+    float: left;
+}
+
+#logout {
+    float: right;
+}
+
+.head-nav-bar li a {
+    display: block;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-color: #094352 !important;
+}
+
+.head-nav-bar .active a {
+    color: #cb4b16;
+    font-weight: bold;
+}
+
+/* 
+Feeds 
+*/
+
+#feeds-create {
+    display:block;
+    text-align: right;
+    text-decoration: none;
+    color: #2aa198;
+}
+#feeds-list {
+    list-style-type: none;
+}
+
+#feeds-list li {
+    background-color: #073642;
+    margin-top: 1em;
+}
+#feeds-list li a {
+    display: block;
+    text-decoration: none;
+    border-color: #094352;
+}
+
+#feed-title {
+    text-align: center;
+    color: #b58900;
+}
+
+#feed-delete {
+    text-align: right;
+    color: #2aa198;
+}
+
+/*
+Form
+*/
+
+form {
+    display: block;
+    background-color: #073642 !important;
+}
+
+form label {
+    color: #d33682;
+}
+form #submit {
+    background-color: #859900; 
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+/*
+Article
+*/
+
+article {
+    background-color: #073642;
+}
+
+article header h2 {
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+article header h2 a {
+    text-decoration: none;
+    color: #b58900;
+}
+
+article aside {
+    text-align: right;
+}
+article aside a {
+    text-decoration: none;
+    color: #2aa198;
+}
+
+
+/*
+History
+*/
+
+.read header h2 a {
+    text-decoration: none;
+    color: #d33682;
+}
+
+/*
+Navigation Links
+*/
+#markreadrest {
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    color: #2aa198;
+}
+#markreadlist {
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    color: #2aa198;
+}
+#next {
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    color: #2aa198;
+}
+#previous {
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    color: #2aa198;
+}
