@@ -15,7 +15,7 @@ requirements.txt contains needed python packages.
 Important if you set up this reader on a public server:
 
 - export DJANGO_DEBUG=False
-- export DJANGO_SECRET_KEY=<somethingrandom>
+- export DJANGO_SECRET_KEY=\<somethingrandom\>
 - python3 manage.py check --deploy and fix warnings
 
 ### Setup Database
