@@ -30,3 +30,10 @@ Run "python3 manage.py updatefeeds" in a cron job. It updates the feeds and
 deletes old entries.
 
 If a feed cannot be updated, "Bozo" is true. 
+
+### Server Setup
+
+Digital Ocean explains quite well how to deploy such a django site together 
+with nginx and gunicorn. Database can stay SQLite: 
+
+[Link to Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04)
