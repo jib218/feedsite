@@ -36,34 +36,66 @@ a {
 Head Navigation Bar
 */
 
-.head-nav-bar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+#head-nav-bar {
+    background-color: #073642;
     overflow: hidden;
-    background-color: #073642 !important;
 }
 
-.head-nav-bar li {
+#head-nav-bar a {
     float: left;
-}
-
-#logout {
-    float: right;
-}
-
-.head-nav-bar li a {
-    display: block;
     text-align: center;
     padding: 10px 16px;
     text-decoration: none;
-    border-color: #094352 !important;
+    border-color: #094352;
 }
 
-.head-nav-bar .active a {
+#head-nav-bar .active {
     color: #cb4b16;
     font-weight: bold;
 }
+
+#head-nav-bar #logout {
+    float: right;
+}
+
+.show-menu {
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0;
+    display: none;
+}
+
+input[type=checkbox]{
+    display: none;
+}
+
+input[type=checkbox]:checked ~ #head-nav-bar{
+    display: block;
+}
+
+@media screen and (max-width : 900px){
+    #head-nav-bar {
+        display: none;
+    }
+
+    #head-nav-bar a {
+        width: 100%;
+        display: block;
+        padding: 10px 0;
+        border-color: #094352;
+    }
+
+    #head-nav-bar #logout {
+        float: center;
+    }
+    
+    /*Display 'show menu' link*/
+    .show-menu {
+        display:block;
+        background-color: #073642;
+    }
+}
+
 
 /* 
 Feeds 
