@@ -18,7 +18,7 @@ Important if you set up this reader on a public server:
 - export DJANGO_SECRET_KEY=\<somethingrandom\>
 - python3 manage.py check --deploy and fix warnings
 
-### Setup Database
+### Database
 
 - python3 manage.py migrate
 - python3 manage.py createsuperuser
@@ -29,11 +29,16 @@ Important if you set up this reader on a public server:
 Run "python3 manage.py updatefeeds" in a cron job. It updates the feeds and 
 deletes old entries.
 
-If a feed cannot be updated, "Bozo" is true. 
+If a feed cannot be updated, "Bozo" is true.
 
-### Server Setup
+### Server
 
 Digital Ocean explains quite well how to deploy such a django site together 
-with nginx and gunicorn. Database can stay SQLite: 
+with nginx and gunicorn. Database can stay SQLite.
 
 [Link to Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-16-04)
+
+### Android Chrome
+
+Adjust static/feedsite/site.webmanifest for pinning feedsite to the
+Android home screen with Chrome.
